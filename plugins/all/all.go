@@ -20,5 +20,6 @@ import (
 	_ "github.com/influxdb/telegraf/plugins/rabbitmq"
 	_ "github.com/influxdb/telegraf/plugins/redis"
 	_ "github.com/influxdb/telegraf/plugins/rethinkdb"
+	_ "github.com/influxdb/telegraf/plugins/statsd"
 	_ "github.com/influxdb/telegraf/plugins/system"
 )

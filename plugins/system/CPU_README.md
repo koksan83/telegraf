@@ -22,7 +22,7 @@ cpu  3357 0 4313 1362393
     system (3) Time spent in system mode.
 
     idle   (4) Time spent in the idle task.  This value should be USER_HZ times
-    the second entry in the /proc/uptime pseudo-file.
+    the second entry in the /rootfs/proc/uptime pseudo-file.
 
     iowait (since Linux 2.5.41)
            (5) Time waiting for I/O to complete.

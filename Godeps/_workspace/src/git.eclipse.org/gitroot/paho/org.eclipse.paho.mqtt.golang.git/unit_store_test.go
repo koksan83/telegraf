@@ -34,7 +34,7 @@ func Test_fullpath(t *testing.T) {
 func Test_exists(t *testing.T) {
 	b := exists("/")
 	if !b {
-		t.Errorf("/proc/cpuinfo was not found")
+		t.Errorf("/rootfs/proc/cpuinfo was not found")
 	}
 }
 

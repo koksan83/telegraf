@@ -9,7 +9,7 @@ explanation of the difference between `used` and `actual_used` RAM, see
 - **total**: total physical memory available
 - **available**: the actual amount of available memory that can be given instantly
 to processes that request more memory in bytes; In linux kernel 3.14+, this
-is available natively in /proc/meminfo. In other platforms, this is calculated by
+is available natively in /rootfs/proc/meminfo. In other platforms, this is calculated by
 summing different memory values depending on the platform
 (e.g. free + buffers + cached on Linux).
 It is supposed to be used to monitor actual memory usage in a cross platform fashion.

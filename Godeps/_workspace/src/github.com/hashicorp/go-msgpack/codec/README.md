@@ -136,7 +136,7 @@ Typical usage model:
 
 A sample run of benchmark using "go test -bi -bench=. -benchmem":
 
-    /proc/cpuinfo: Intel(R) Core(TM) i7-2630QM CPU @ 2.00GHz (HT)
+    /rootfs/proc/cpuinfo: Intel(R) Core(TM) i7-2630QM CPU @ 2.00GHz (HT)
     
     ..............................................
     BENCHMARK INIT: 2013-10-16 11:02:50.345970786 -0400 EDT

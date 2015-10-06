@@ -65,7 +65,7 @@ type metrics struct {
 
 func TestLustre2GeneratesMetrics(t *testing.T) {
 
-	tempdir := os.TempDir() + "/telegraf/proc/fs/lustre/"
+	tempdir := os.TempDir() + "/telegraf/rootfs/proc/fs/lustre/"
 	ost_name := "OST0001"
 
 	mdtdir := tempdir + "/mdt/"

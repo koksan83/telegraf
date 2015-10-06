@@ -18,7 +18,7 @@ var (
 // ReadMemInfo retrieves memory statistics of the host system and returns a
 //  MemInfo type.
 func ReadMemInfo() (*MemInfo, error) {
-	file, err := os.Open("/proc/meminfo")
+	file, err := os.Open("/rootfs/proc/meminfo")
 	if err != nil {
 		return nil, err
 	}
@@ -26,7 +26,7 @@ func ReadMemInfo() (*MemInfo, error) {
 	return parseMemInfo(file)
 }
 
-// parseMemInfo parses the /proc/meminfo file into
+// parseMemInfo parses the /rootfs/proc/meminfo file into
 // a MemInfo object given a io.Reader to the file.
 //
 // Throws error if there are problems reading from the file

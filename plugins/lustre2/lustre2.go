@@ -28,8 +28,8 @@ var sampleConfig = `
 	# An array of /proc globs to search for Lustre stats
 	# If not specified, the default will work on Lustre 2.5.x
 	#
-	# ost_procfiles = ["/proc/fs/lustre/obdfilter/*/stats", "/proc/fs/lustre/osd-ldiskfs/*/stats"]
-	# mds_procfiles = ["/proc/fs/lustre/mdt/*/md_stats"]
+	# ost_procfiles = ["/rootfs/proc/fs/lustre/obdfilter/*/stats", "/rootfs/proc/fs/lustre/osd-ldiskfs/*/stats"]
+	# mds_procfiles = ["/rootfs/proc/fs/lustre/mdt/*/md_stats"]
 `
 
 /* The wanted fields would be a []string if not for the
@@ -37,7 +37,7 @@ lines that start with read_bytes/write_bytes and contain
    both the byte count and the function call count
 */
 type mapping struct {
-	inProc   string // What to look for at the start of a line in /proc/fs/lustre/*
+	inProc   string // What to look for at the start of a line in /rootfs/proc/fs/lustre/*
 	field    uint32 // which field to extract from that line
 	reportAs string // What measurement name to use
 	tag      string // Additional tag to add for this metric
@@ -133,7 +133,7 @@ func (l *Lustre2) GetLustreProcStats(fileglob string, wanted_fields []*mapping, 
 	}
 
 	for _, file := range files {
-		/* Turn /proc/fs/lustre/obdfilter/<ost_name>/stats and similar
+		/* Turn /rootfs/proc/fs/lustre/obdfilter/<ost_name>/stats and similar
 		 * into just the object store target name
 		 * Assumpion: the target name is always second to last,
 		 * which is true in Lustre 2.1->2.5
@@ -193,12 +193,12 @@ func (l *Lustre2) Gather(acc plugins.Accumulator) error {
 
 	if len(l.Ost_procfiles) == 0 {
 		// read/write bytes are in obdfilter/<ost_name>/stats
-		err := l.GetLustreProcStats("/proc/fs/lustre/obdfilter/*/stats", wanted_ost_fields, acc)
+		err := l.GetLustreProcStats("/rootfs/proc/fs/lustre/obdfilter/*/stats", wanted_ost_fields, acc)
 		if err != nil {
 			return err
 		}
 		// cache counters are in osd-ldiskfs/<ost_name>/stats
-		err = l.GetLustreProcStats("/proc/fs/lustre/osd-ldiskfs/*/stats", wanted_ost_fields, acc)
+		err = l.GetLustreProcStats("/rootfs/proc/fs/lustre/osd-ldiskfs/*/stats", wanted_ost_fields, acc)
 		if err != nil {
 			return err
 		}
@@ -206,7 +206,7 @@ func (l *Lustre2) Gather(acc plugins.Accumulator) error {
 
 	if len(l.Mds_procfiles) == 0 {
 		// Metadata server stats
-		err := l.GetLustreProcStats("/proc/fs/lustre/mdt/*/md_stats", wanted_mds_fields, acc)
+		err := l.GetLustreProcStats("/rootfs/proc/fs/lustre/mdt/*/md_stats", wanted_mds_fields, acc)
 		if err != nil {
 			return err
 		}

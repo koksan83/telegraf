@@ -6,11 +6,11 @@ endif
 
 build: prepare
 	CGO_ENABLED=0 GOOS=linux $(GOBIN)/godep go build \
-		-o telegraf \
 		-ldflags \
 		-a \
-		-installsuffix cgo
+		-installsuffix cgo \
 		"-X main.Version=$(VERSION)" \
+		-o telegraf \
 		./cmd/telegraf/telegraf.go
 
 build-linux-bins: prepare

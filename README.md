@@ -71,8 +71,8 @@ if you don't have it already. You also must build with golang version 1.4+
 
 1. [Install Go](https://golang.org/doc/install)
 2. [Setup your GOPATH](https://golang.org/doc/code.html#GOPATH)
-3. run `go get github.com/influxdb/telegraf`
-4. `cd $GOPATH/src/github.com/influxdb/telegraf`
+3. run `go get github.com/koksan83/telegraf`
+4. `cd $GOPATH/src/github.com/koksan83/telegraf`
 5. run `make`
 
 ### How to use it:

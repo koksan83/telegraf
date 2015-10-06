@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"testing"
 
-	"github.com/influxdb/telegraf/testutil"
+	"github.com/koksan83/telegraf/testutil"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 )
@@ -75,7 +75,7 @@ func TestPostgresqlGeneratesMetrics(t *testing.T) {
 	}
 
 	assert.True(t, metricsCounted > 0)
-	assert.Equal(t, len(availableColumns) - len(p.IgnoredColumns()), metricsCounted)
+	assert.Equal(t, len(availableColumns)-len(p.IgnoredColumns()), metricsCounted)
 }
 
 func TestPostgresqlTagsMetricsWithDatabaseName(t *testing.T) {

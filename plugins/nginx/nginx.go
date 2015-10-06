@@ -11,7 +11,7 @@ import (
 	"sync"
 	"time"
 
-	"github.com/influxdb/telegraf/plugins"
+	"github.com/koksan83/telegraf/plugins"
 )
 
 type Nginx struct {
@@ -141,21 +141,20 @@ func (n *Nginx) gatherUrl(addr *url.URL, acc plugins.Accumulator) error {
 
 // Get tag(s) for the nginx plugin
 func getTags(addr *url.URL) map[string]string {
-        h := addr.Host
-        host, port, err := net.SplitHostPort(h)
-        if err != nil {
-            host = addr.Host
-            if addr.Scheme == "http" {
-                port = "80"
-            } else if addr.Scheme == "https" {
-                port = "443"
-            } else {
-                port = ""
-            }
-        }
-        return map[string]string{"server": host, "port": port}
+	h := addr.Host
+	host, port, err := net.SplitHostPort(h)
+	if err != nil {
+		host = addr.Host
+		if addr.Scheme == "http" {
+			port = "80"
+		} else if addr.Scheme == "https" {
+			port = "443"
+		} else {
+			port = ""
+		}
+	}
+	return map[string]string{"server": host, "port": port}
 }
-
 
 func init() {
 	plugins.Add("nginx", func() plugins.Plugin {

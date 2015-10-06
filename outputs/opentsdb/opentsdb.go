@@ -9,7 +9,7 @@ import (
 	"time"
 
 	"github.com/influxdb/influxdb/client"
-	"github.com/influxdb/telegraf/outputs"
+	"github.com/koksan83/telegraf/outputs"
 )
 
 type OpenTSDB struct {

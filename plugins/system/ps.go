@@ -6,7 +6,7 @@ import (
 	"strings"
 
 	dc "github.com/fsouza/go-dockerclient"
-	"github.com/influxdb/telegraf/plugins"
+	"github.com/koksan83/telegraf/plugins"
 	"github.com/shirou/gopsutil/common"
 	"github.com/shirou/gopsutil/cpu"
 	"github.com/shirou/gopsutil/disk"

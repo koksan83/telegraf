@@ -5,7 +5,7 @@ package system
 import (
 	"testing"
 
-	"github.com/influxdb/telegraf/testutil"
+	"github.com/koksan83/telegraf/testutil"
 	"github.com/shirou/gopsutil/cpu"
 	"github.com/shirou/gopsutil/docker"
 

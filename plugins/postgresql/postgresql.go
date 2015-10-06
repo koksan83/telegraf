@@ -6,7 +6,7 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/influxdb/telegraf/plugins"
+	"github.com/koksan83/telegraf/plugins"
 
 	_ "github.com/lib/pq"
 )

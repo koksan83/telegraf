@@ -5,9 +5,9 @@ import (
 	"testing"
 
 	// needing to load the plugins
-	_ "github.com/influxdb/telegraf/plugins/all"
+	_ "github.com/koksan83/telegraf/plugins/all"
 	// needing to load the outputs
-	// _ "github.com/influxdb/telegraf/outputs/all"
+	// _ "github.com/koksan83/telegraf/outputs/all"
 )
 
 func TestAgent_LoadPlugin(t *testing.T) {

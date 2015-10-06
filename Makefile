@@ -5,7 +5,11 @@ ifndef GOBIN
 endif
 
 build: prepare
-	$(GOBIN)/godep go build -o telegraf -ldflags \
+	CGO_ENABLED=0 GOOS=linux $(GOBIN)/godep go build \
+		-o telegraf \
+		-ldflags \
+		-a \
+		-installsuffix cgo
 		"-X main.Version=$(VERSION)" \
 		./cmd/telegraf/telegraf.go
 
